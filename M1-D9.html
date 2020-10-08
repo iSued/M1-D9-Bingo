@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <!--
+        BINGO CHALLENGE!!!
+        Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+        Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+        EXTRA: 
+        - Take ALWAYS a new number (avoid randoming 10 3 times for example)
+        - Create a USER BOARD with random 24 numbers that highlights as the main board does
+        - Let the user choose HOW MANY user boards he's willing to play with and create them.
+    -->
+  <head>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bingo</title>
+    <style>
+      body {
+        background-color : rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        font-family: 'Courier New', Courier, monospace;
+        max-width: 1066px;
+        margin: 0 auto;
+        text-align: center;
+        
+      }
+
+      #Bingo {
+        width: 100%;
+       margin-bottom: 20px;
+        border: 5px solid black;
+        border-radius: 2em;
+        padding: 1%; 
+        }
+        input[type=button]
+      {
+      background-color: rgb(0, 0, 0) ;
+      border-radius: 4px;
+      margin:0 auto;
+      width: 10em;
+      height: 10em;
+      border-radius: 77em;
+      
+      }
+
+input:active{
+  background-color: rgb(58, 56, 56);
+}
+      .cellNumber {
+        display: inline-block;
+        min-width: 40px;
+        text-align: center;
+        min-height: 40px;
+        justify-content: center;
+        background-color: rgb(94, 255, 161);
+        border: 4px solid black;
+        margin: 4px;
+        border-radius: 1000em;
+       
+      }
+      .Selected{
+        background-color: rgb(30, 255, 244);
+        
+      }
+      h1{
+         text-align: center;
+         font-size: 4em;
+         }
+    </style>
+  </head>
+  <body>
+    <body>
+      <h1>Bingo-Ballino</h1>
+    <div id="Bingo">
+
+    </div>
+      
+      <div>
+      
+        <input type="button" value="" onclick="ranNumber()" />
+      </div>
+    </body>
+    <script>
+      var numArray=[]
+  
+      window.onload=function(){
+        
+  
+        let bingoRef=document.getElementById('Bingo')
+        console.log(bingoRef)
+        
+        
+        for(let i=1;i<=76;i++){
+          numArray.push(i)
+          let child = document.createElement('div')
+          child.className= 'cellNumber'
+          
+          let cellNumber=document.createElement('h3')
+          cellNumber.innerText=i
+          child.appendChild(cellNumber)
+          bingoRef.appendChild(child)
+        }
+        }
+      function ranNumber(){
+  
+      
+        let selected = document.querySelector('.Selected') 
+              if (selected) {
+                
+                selected.className = selected.className.replace(' Selected', '')}
+        let ran=(Math.floor(Math.random() * 77))
+        console.log(ran)
+        console.log(numArray[ran])
+        let divArray=document.querySelectorAll('div')
+        divArray[ran].className += ' Selected'
+        }
+    </script>
+  </html>
+  </script>
+</html>
